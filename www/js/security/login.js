@@ -18,6 +18,7 @@
         this._loginSrv = LoginSvc;
         this.userName = '';
         this.password = '';
+        this.loginAnimate = "login-animate";
     }
 
     LoginCtrl.prototype = {

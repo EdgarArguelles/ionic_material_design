@@ -1,5 +1,10 @@
-.login, .login ion-header-bar {
+.login-animate {
+    background-position: 25% 16%;
+}
+
+.login {
     background-image: url(../img/login.jpg);
+    -webkit-transition: all 1.5s ease-in-out;
 }
 
 .login img {

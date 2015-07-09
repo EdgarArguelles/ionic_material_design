@@ -15,6 +15,6 @@ Basic login page using Ionic and Angular Material (ngMaterial)
  $ ionic serve
 
 # Run on device
- $ ionic platform add [android] [ios]
- $ ionic build [android] [ios]
+ $ ionic platform add [android] [ios]<br>
+ $ ionic build [android] [ios]<br>
  $ ionic run [android] [ios] or ionic emulate [android] [ios]
