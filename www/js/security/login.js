@@ -13,8 +13,9 @@
         });
     }
 
-    function LoginCtrl($ionicPopup, LoginSvc) {
-        this._$ionicPopup = $ionicPopup;
+    function LoginCtrl($location, $mdDialog, LoginSvc) {
+        this._$location = $location;
+        this._$mdDialog = $mdDialog;
         this._loginSrv = LoginSvc;
         this.userName = '';
         this.password = '';
@@ -22,15 +23,23 @@
     }
 
     LoginCtrl.prototype = {
+        next: function (event) {
+            if (event.keyCode === 13) {
+                angular.element(document.querySelector('#password')).focus();
+            }
+        },
         login: function () {
             var self = this;
             this._loginSrv.login(this.userName, this.password).then(function (data) {
-                self._$ionicPopup.alert({
-                    title: 'Ok',
-                    template: data
-                });
+                self._$location.url('main');
             }, function (err) {
-                alert("err: " + err);
+                self._$mdDialog.show(
+                    self._$mdDialog.alert()
+                        .parent(angular.element(document.body))
+                        .title('Access denied')
+                        .content(err)
+                        .ok('Got it!')
+                );
             });
         }
     };
@@ -39,7 +48,7 @@
         return {
             login: function (userName, password) {
                 return $q(function (resolve, reject) {
-                    if (userName === 'edgar') {
+                    if (userName === 'user') {
                         resolve('Welcome');
                     } else {
                         reject('The credentials are invalid!');

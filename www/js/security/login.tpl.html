@@ -27,12 +27,13 @@
                     <span class="input-label">Username</span>
                     <i class="icon ion-person placeholder-icon"></i>
                     <input type="text" placeholder="Username" required autofocus input-clear="white"
-                           ng-model="ctrl.userName">
+                           ng-model="ctrl.userName" ng-keyup="ctrl.next($event)">
                 </div>
                 <div class="item item-input item-floating-label">
                     <i class="icon ion-locked placeholder-icon"></i>
                     <span class="input-label">Password</span>
-                    <input type="password" placeholder="Password" required input-clear="white" ng-model="ctrl.password">
+                    <input id="password" type="password" placeholder="Password" required input-clear="white"
+                           ng-model="ctrl.password">
                 </div>
             </div>
             <md-button type="submit" class="md-raised md-primary button-block" ng-disabled="form.$invalid">
