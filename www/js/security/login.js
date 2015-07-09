@@ -7,15 +7,17 @@
 
     function config($stateProvider) {
         $stateProvider.state('login', {
+            cache: false,
             url: "/login",
             templateUrl: "js/security/login.tpl.html",
             controller: "LoginCtrl as ctrl"
         });
     }
 
-    function LoginCtrl($location, $mdDialog, LoginSvc) {
+    function LoginCtrl($location, $mdDialog, $mdToast, LoginSvc) {
         this._$location = $location;
         this._$mdDialog = $mdDialog;
+        this._$mdToast = $mdToast;
         this._loginSrv = LoginSvc;
         this.userName = '';
         this.password = '';
@@ -23,6 +25,15 @@
     }
 
     LoginCtrl.prototype = {
+        external: function (provider) {
+            var self = this;
+            self._$mdToast.show(
+                self._$mdToast.simple()
+                    .content('access through ' + provider + ' account!')
+                    .position('bottom right')
+                    .hideDelay(2000)
+            );
+        },
         next: function (event) {
             if (event.keyCode === 13) {
                 angular.element(document.querySelector('#password')).focus();
@@ -31,7 +42,7 @@
         login: function () {
             var self = this;
             this._loginSrv.login(this.userName, this.password).then(function (data) {
-                self._$location.url('main');
+                self._$location.url('app/main');
             }, function (err) {
                 self._$mdDialog.show(
                     self._$mdDialog.alert()

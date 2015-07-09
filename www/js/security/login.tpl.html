@@ -7,13 +7,13 @@
                 </md-button>
             </md-fab-trigger>
             <md-fab-actions>
-                <md-button class="md-primary">
+                <md-button class="md-primary" ng-click="ctrl.external('Twitter')">
                     <i class="ion-social-twitter"></i> Twitter
                 </md-button>
-                <md-button class="md-warn">
+                <md-button class="md-warn" ng-click="ctrl.external('Google')">
                     <i class="ion-social-google"></i> Google
                 </md-button>
-                <md-button class="md-primary">
+                <md-button class="md-primary" ng-click="ctrl.external('Facebook')">
                     <i class="ion-social-facebook"></i> Facebook
                 </md-button>
             </md-fab-actions>
@@ -26,7 +26,7 @@
                 <div class="item item-input item-floating-label">
                     <span class="input-label">Username</span>
                     <i class="icon ion-person placeholder-icon"></i>
-                    <input type="text" placeholder="Username" required autofocus input-clear="white"
+                    <input type="text" placeholder="Username" required focus input-clear="white"
                            ng-model="ctrl.userName" ng-keyup="ctrl.next($event)">
                 </div>
                 <div class="item item-input item-floating-label">
