@@ -4,16 +4,11 @@
         .directive('shrink', shrink);
 
     function shrink($document) {
-        var fadeAmt;
         var shrink = function (header, content, amt, max, min) {
             var delta = max - min;
             amt = Math.min(delta, amt);
-            fadeAmt = 1 - amt / delta;
             ionic.requestAnimationFrame(function () {
                 header.style[ionic.CSS.TRANSFORM] = 'translate3d(0, -' + amt + 'px, 0)';
-                for (var i = 0, j = header.children.length; i < j; i++) {
-                    header.children[i].style.opacity = fadeAmt;
-                }
             });
         };
 
