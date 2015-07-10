@@ -11,16 +11,19 @@
     </ion-side-menu-content>
 
     <ion-side-menu expose-aside-when="large" side="left">
-        <ion-header-bar class="bar-positive">
+        <ion-header-bar id="shrink" class="bar-positive" style="height: 200px; min-height: 44px">
             <h1 class="title">Menu</h1>
         </ion-header-bar>
-        <ion-content>
+        <ion-content shrink="shrink">
             <ion-list>
                 <ion-item menu-close class="menu-item" href="#/app/main">
                     <md-button class="menu-button">Main</md-button>
                 </ion-item>
                 <ion-item menu-close class="menu-item" href="#/app/about">
                     <md-button class="menu-button">About</md-button>
+                </ion-item>
+                <ion-item ng-repeat="i in [1,2,3,4,5,6,7,8,9,10,11,12]" menu-close class="menu-item" href="#/app/about">
+                    <md-button class="menu-button">Extra {{i}}</md-button>
                 </ion-item>
             </ion-list>
         </ion-content>

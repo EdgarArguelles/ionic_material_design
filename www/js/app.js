@@ -4,8 +4,9 @@
         'ionic',
         'ngMaterial',
         'app.security.login',
-        'app.directive.inputclear',
         'app.directive.focus',
+        'app.directive.inputclear',
+        'app.directive.shrink',
         'app.controller'
     ])
         .run(run)
