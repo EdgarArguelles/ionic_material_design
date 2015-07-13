@@ -55,7 +55,7 @@
                 $mdToast.show(
                     $mdToast.simple()
                         .content('Process canceled!')
-                        .position('bottom right')
+                        .position('top right')
                         .hideDelay(2000)
                 );
             });

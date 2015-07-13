@@ -1,0 +1,15 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <h1 class="title">Visit</h1>
+        <button class="button button-assertive" ng-click="ctrl.closeMap()">Close</button>
+    </ion-header-bar>
+    <ion-content>
+        <md-card>
+            <map center="19.519669847423703, -99.33082580566406" zoom="11" style="height: 500px;"></map>
+            <md-button class="md-raised md-primary" ng-click="ctrl.setCurrentLocation()">
+                <md-icon>my_location</md-icon>
+                Where am I?
+            </md-button>
+        </md-card>
+    </ion-content>
+</ion-modal-view>
