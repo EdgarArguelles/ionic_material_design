@@ -3,13 +3,25 @@
         <h1 class="title">Visit</h1>
         <button class="button button-assertive" ng-click="ctrl.closeMap()">Close</button>
     </ion-header-bar>
-    <ion-content>
-        <md-card>
-            <map center="19.519669847423703, -99.33082580566406" zoom="11" style="height: 500px;"></map>
-            <md-button class="md-raised md-primary" ng-click="ctrl.setCurrentLocation()">
-                <md-icon>my_location</md-icon>
-                Where am I?
-            </md-button>
+    <ion-content class="fill-content">
+        <md-card style="height: 100%;">
+            <map style="height: 75%;">
+                <marker position="{{destination}}" ng-repeat="destination in ctrl.map.destinations"></marker>
+            </map>
+            <section layout="row" layout-sm="column" layout-align="center center">
+                <md-button class="md-raised md-warn" ng-click="ctrl.toUserPosition()">
+                    <md-icon>location_searching</md-icon>
+                    User Location
+                </md-button>
+                <md-button class="md-raised md-primary" ng-click="ctrl.toMyPosition()">
+                    <md-icon>my_location</md-icon>
+                    Where am I?
+                </md-button>
+                <md-button class="md-raised" ng-click="ctrl.showBoth()">
+                    <md-icon>location_on</md-icon>
+                    Show both
+                </md-button>
+            </section>
         </md-card>
     </ion-content>
 </ion-modal-view>

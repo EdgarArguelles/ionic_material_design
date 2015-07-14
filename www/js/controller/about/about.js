@@ -18,8 +18,9 @@
 
     function AboutCtrl($scope, $ionicModal) {
         var self = this;
-        $scope.$on('mapInitialized', function (evt, evtMap) {
-            self.map = evtMap;
+        $scope.$on('mapInitialized', function (evt, map) {
+            self.map = map;
+            self.map.destinations = ["mexico, city", "current_location"];
         });
 
         $ionicModal.fromTemplateUrl('js/controller/about/map.tpl.html', {
@@ -32,13 +33,31 @@
 
     AboutCtrl.prototype = {
         showMap: function () {
-            this.mapModal.show();
+            var self = this;
+            this.mapModal.show().then(function () {
+                self.toUserPosition();
+            });
         },
         closeMap: function () {
             this.mapModal.hide();
         },
-        setCurrentLocation: function () {
-            this.map.setCenter("current_location");
+        toUserPosition: function () {
+            this.map.setCenter(this.map.markers[0].getPosition());
+            this.map.setZoom(10);
+        },
+        toMyPosition: function () {
+            this.map.setCenter(this.map.markers[1].getPosition());
+            this.map.setZoom(17);
+        },
+        showBoth: function () {
+            if (!this.markerBounds) {
+                this.markerBounds = new google.maps.LatLngBounds();
+                var self = this;
+                angular.forEach(this.map.markers, function (mark) {
+                    self.markerBounds.extend(mark.getPosition());
+                });
+            }
+            this.map.fitBounds(this.markerBounds);
         }
     };
 })();

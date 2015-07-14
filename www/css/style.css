@@ -1,3 +1,8 @@
+/* fill ion-content */
+.fill-content > .scroll {
+    height: 100%;
+}
+
 /* fix md-button style in menu side */
 .menu-item a {
     padding: 0px !important;
