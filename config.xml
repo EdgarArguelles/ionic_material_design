@@ -17,4 +17,5 @@
     <feature name="StatusBar">
         <param name="ios-package" value="CDVStatusBar" onload="true"/>
     </feature>
+    <plugin name="cordova-plugin-geolocation" spec="^1.0.1"/>
 </widget>

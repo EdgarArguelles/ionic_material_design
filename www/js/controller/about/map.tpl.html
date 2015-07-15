@@ -5,7 +5,7 @@
     </ion-header-bar>
     <ion-content class="fill-content">
         <md-card style="height: 100%;">
-            <map style="height: 75%;">
+            <map center="mexico, city" style="height: 75%;">
                 <marker position="{{destination}}" ng-repeat="destination in ctrl.map.destinations"></marker>
             </map>
             <section layout="row" layout-sm="column" layout-align="center center">
@@ -17,7 +17,7 @@
                     <md-icon>my_location</md-icon>
                     Where am I?
                 </md-button>
-                <md-button class="md-raised" ng-click="ctrl.showBoth()">
+                <md-button class="md-raised" ng-click="ctrl.showBoth()" ng-disabled="!ctrl.map.markers[1]">
                     <md-icon>location_on</md-icon>
                     Show both
                 </md-button>

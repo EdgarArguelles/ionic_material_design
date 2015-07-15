@@ -16,11 +16,13 @@
         });
     }
 
-    function AboutCtrl($scope, $ionicModal) {
+    function AboutCtrl($scope, $ionicModal, $ionicLoading) {
+        this._$ionicLoading = $ionicLoading;
+
         var self = this;
         $scope.$on('mapInitialized', function (evt, map) {
             self.map = map;
-            self.map.destinations = ["mexico, city", "current_location"];
+            self.map.destinations = ["mexico, city"];
         });
 
         $ionicModal.fromTemplateUrl('js/controller/about/map.tpl.html', {
@@ -46,8 +48,25 @@
             this.map.setZoom(10);
         },
         toMyPosition: function () {
-            this.map.setCenter(this.map.markers[1].getPosition());
-            this.map.setZoom(17);
+            if (this.map.markers[1]) {
+                this.map.setCenter(this.map.markers[1].getPosition());
+                this.map.setZoom(17);
+                return;
+            }
+
+            this._$ionicLoading.show({
+                template: 'Getting current location...'
+            });
+
+            var self = this;
+            navigator.geolocation.getCurrentPosition(function (position) {
+                self.map.destinations.push(position.coords.latitude + ", " + position.coords.longitude);
+                self.map.setCenter(new google.maps.LatLng(position.coords.latitude, position.coords.longitude));
+                self.map.setZoom(17);
+                self._$ionicLoading.hide();
+            }, function (err) {
+                self._$ionicLoading.hide();
+            });
         },
         showBoth: function () {
             if (!this.markerBounds) {
