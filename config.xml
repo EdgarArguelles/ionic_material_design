@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<?xml version='1.0' encoding='utf-8'?>
 <widget id="com.ionicframework.ionicmaterialdesign871545" version="0.0.1" xmlns="http://www.w3.org/ns/widgets">
     <name>Ionic Material</name>
     <description>
@@ -15,7 +15,13 @@
     <preference name="android-minSdkVersion" value="16"/>
     <preference name="BackupWebStorage" value="none"/>
     <feature name="StatusBar">
-        <param name="ios-package" value="CDVStatusBar" onload="true"/>
+        <param name="ios-package" onload="true" value="CDVStatusBar"/>
     </feature>
+    <plugin name="com.ionic.keyboard" spec="^1.0.4"/>
+    <plugin name="cordova-plugin-console" spec="^1.0.1"/>
+    <plugin name="cordova-plugin-device" spec="^1.0.1"/>
+    <plugin name="cordova-plugin-splashscreen" spec="^2.1.0"/>
+    <plugin name="cordova-plugin-whitelist" spec="^1.0.0"/>
+    <plugin name="nl.x-services.plugins.toast" spec="^2.0.4"/>
     <plugin name="cordova-plugin-geolocation" spec="^1.0.1"/>
 </widget>
