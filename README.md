@@ -10,14 +10,14 @@ Basic login page using Ionic and Angular Material (ngMaterial)
 
 # Before run
  $ npm install<br>
- $ bower install
+ $ bower install<br>
+ (its recommended to remove the auto generated files hooks/uglify-config.json and hooks/after_prepare/uglify.js)
  
 # Run on browser
  $ ionic serve
 
 # Before run or compile on device
  $ ionic platform add [android] [ios]<br>
- (optional remove the auto generated files hooks/uglify-config.json and hooks/after_prepare/uglify.js)
 
 # Compile on device
  $ gulp && ionic build [android] [ios]
@@ -26,3 +26,6 @@ Basic login page using Ionic and Angular Material (ngMaterial)
  $ gulp && ionic run [android] [ios]<br>
   or<br>
  $ gulp && ionic emulate [android] [ios]
+ 
+# Debug on device
+ $ adb logcat | grep -i "INFO:CONSOLE"
