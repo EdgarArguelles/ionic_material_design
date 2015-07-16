@@ -8,7 +8,7 @@
             url: "/main",
             views: {
                 'menuContent': {
-                    templateUrl: "js/controller/main/main.tpl.html"
+                    templateUrl: "app/controller/main/main.tpl.html"
                 }
             }
         });

@@ -32,7 +32,7 @@
         $stateProvider.state('app', {
             url: "/app",
             abstract: true,
-            templateUrl: "js/layout/menu.tpl.html",
+            templateUrl: "app/layout/menu.tpl.html",
             controller: 'MainCtrl as ctrl'
         });
 

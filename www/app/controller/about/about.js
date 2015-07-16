@@ -9,7 +9,7 @@
             url: "/about",
             views: {
                 'menuContent': {
-                    templateUrl: "js/controller/about/about.tpl.html",
+                    templateUrl: "app/controller/about/about.tpl.html",
                     controller: "AboutCtrl as ctrl"
                 }
             }
@@ -25,7 +25,7 @@
             self.map.destinations = ["mexico, city"];
         });
 
-        $ionicModal.fromTemplateUrl('js/controller/about/map.tpl.html', {
+        $ionicModal.fromTemplateUrl('app/controller/about/map.tpl.html', {
             scope: $scope,
             animation: 'slide-in-up'
         }).then(function (modal) {

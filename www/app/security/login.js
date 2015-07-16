@@ -5,15 +5,17 @@
         .controller('LoginCtrl', LoginCtrl)
         .factory('LoginSvc', LoginSvc);
 
+    // @ngInject
     function config($stateProvider) {
         $stateProvider.state('login', {
             cache: false,
             url: "/login",
-            templateUrl: "js/security/login.tpl.html",
+            templateUrl: "app/security/login.tpl.html",
             controller: "LoginCtrl as ctrl"
         });
     }
 
+    // @ngInject
     function LoginCtrl($location, $mdDialog, $mdToast, LoginSvc) {
         this._$location = $location;
         this._$mdDialog = $mdDialog;
@@ -55,6 +57,7 @@
         }
     };
 
+    // @ngInject
     function LoginSvc($q) {
         return {
             login: function (userName, password) {
