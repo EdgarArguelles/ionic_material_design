@@ -3,6 +3,7 @@
     angular.module('app', [
         'ionic',
         'ngMaterial',
+        'templates',
         'app.security.login',
         'app.directive.focus',
         'app.directive.inputclear',
