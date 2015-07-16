@@ -27,7 +27,7 @@ switch (platform) {
     case 'android':
         platformPath = path.join(platformPath, platform, 'assets', 'www');
         break;
-    case 'ios': 
+    case 'ios':
     case 'browser':
         platformPath = path.join(platformPath, platform, 'www');
         break;
@@ -36,7 +36,7 @@ switch (platform) {
         return;
 }
 
-foldersToProcess.forEach(function(folder) {
+foldersToProcess.forEach(function (folder) {
     processFiles(path.join(platformPath, folder));
 });
 
@@ -46,13 +46,13 @@ function processFiles(dir) {
             console.log('processFiles err: ' + err);
             return;
         }
-        list.forEach(function(file) {
+        list.forEach(function (file) {
             file = path.join(dir, file);
-            fs.stat(file, function(err, stat) {
+            fs.stat(file, function (err, stat) {
                 if (recursiveFolderSearch && stat.isDirectory()) {
                     processFiles(file);
-                } else{
-                    compress(file); 
+                } else {
+                    compress(file);
                 }
             });
         });
@@ -61,10 +61,10 @@ function processFiles(dir) {
 
 function compress(file) {
     var ext = path.extname(file);
-    switch(ext) {
+    switch (ext) {
         case '.js':
             console.log('uglifying js file ' + file);
-            var res = ngAnnotate(String(fs.readFileSync(file)), { add: true });
+            var res = ngAnnotate(String(fs.readFileSync(file)), {add: true});
             var result = UglifyJS.minify(res.src, hookConfig.uglifyJsOptions);
             fs.writeFileSync(file, result.code, 'utf8'); // overwrite the original unminified file
             break;
