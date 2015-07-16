@@ -3,6 +3,7 @@
     angular.module('app.directive.shrink', [])
         .directive('shrink', shrink);
 
+    // @ngInject
     function shrink($document) {
         var shrink = function (header, content, amt, max, min) {
             var delta = max - min;

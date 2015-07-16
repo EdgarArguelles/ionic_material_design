@@ -3,6 +3,7 @@
     angular.module('app.directive.focus', [])
         .directive('focus', focus);
 
+    // @ngInject
     function focus() {
         return {
             restrict: 'A',

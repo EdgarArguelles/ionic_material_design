@@ -3,6 +3,7 @@
     angular.module('app.directive.inputclear', [])
         .directive('inputClear', inputClear);
 
+    // @ngInject
     function inputClear() {
         return {
             restrict: 'A',

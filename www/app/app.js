@@ -13,6 +13,7 @@
         .config(config)
         .controller('MainCtrl', MainCtrl);
 
+    // @ngInject
     function run($ionicPlatform) {
         $ionicPlatform.ready(function () {
             if (window.cordova && window.cordova.plugins.Keyboard) {
@@ -24,6 +25,7 @@
         });
     }
 
+    // @ngInject
     function config($mdGestureProvider, $stateProvider, $urlRouterProvider) {
         //prevent to fire angular calls twice when Ionic and ngMaterial are being used
         $mdGestureProvider.skipClickHijack();
@@ -40,6 +42,7 @@
         $urlRouterProvider.otherwise('/login');
     }
 
+    // @ngInject
     function MainCtrl($location, $mdDialog, $mdToast) {
         this.logout = function () {
             var confirm = $mdDialog.confirm()

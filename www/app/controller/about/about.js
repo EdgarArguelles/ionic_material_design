@@ -4,6 +4,7 @@
         .config(config)
         .controller('AboutCtrl', AboutCtrl);
 
+    // @ngInject
     function config($stateProvider) {
         $stateProvider.state('app.about', {
             url: "/about",
@@ -16,6 +17,7 @@
         });
     }
 
+    // @ngInject
     function AboutCtrl($scope, $ionicModal, $ionicLoading) {
         this._$ionicLoading = $ionicLoading;
 
