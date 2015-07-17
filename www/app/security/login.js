@@ -3,7 +3,7 @@
     angular.module('app.security.login', [])
         .config(config)
         .controller('LoginCtrl', LoginCtrl)
-        .factory('LoginSvc', LoginSvc);
+        .service('LoginSvc', LoginSvc);
 
     // @ngInject
     function config($stateProvider) {
@@ -59,16 +59,18 @@
 
     // @ngInject
     function LoginSvc($q) {
-        return {
-            login: function (userName, password) {
-                return $q(function (resolve, reject) {
-                    if (userName === 'user') {
-                        resolve('Welcome');
-                    } else {
-                        reject('The credentials are invalid!');
-                    }
-                });
-            }
-        }
+        this._$q = $q;
     }
+
+    LoginSvc.prototype = {
+        login: function (userName, password) {
+            return this._$q(function (resolve, reject) {
+                if (userName === 'user') {
+                    resolve('Welcome');
+                } else {
+                    reject('The credentials are invalid!');
+                }
+            });
+        }
+    };
 })();

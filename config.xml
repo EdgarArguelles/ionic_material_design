@@ -26,4 +26,5 @@
     <plugin name="cordova-plugin-whitelist" spec="^1.0.0"/>
     <plugin name="nl.x-services.plugins.toast" spec="^2.0.4"/>
     <plugin name="cordova-plugin-geolocation" spec="^1.0.1"/>
+    <plugin name="cordova-plugin-inappbrowser" spec="^1.0.1"/>
 </widget>

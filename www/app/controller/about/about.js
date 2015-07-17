@@ -1,6 +1,6 @@
 (function () {
     'use strict';
-    angular.module('app.controller.about', ['ngMap'])
+    angular.module('app.controller.about', ['ngMap', 'app.service.util'])
         .config(config)
         .controller('AboutCtrl', AboutCtrl);
 
@@ -18,8 +18,9 @@
     }
 
     // @ngInject
-    function AboutCtrl($scope, $ionicModal, $ionicLoading) {
+    function AboutCtrl($scope, $ionicModal, $ionicLoading, Util) {
         this._$ionicLoading = $ionicLoading;
+        this._util = Util;
 
         var self = this;
         $scope.$on('mapInitialized', function (evt, map) {
