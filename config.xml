@@ -27,4 +27,5 @@
     <plugin name="nl.x-services.plugins.toast" spec="^2.0.4"/>
     <plugin name="cordova-plugin-geolocation" spec="^1.0.1"/>
     <plugin name="cordova-plugin-inappbrowser" spec="^1.0.1"/>
+    <plugin name="org.apache.cordova.camera" spec="^0.3.6"/>
 </widget>

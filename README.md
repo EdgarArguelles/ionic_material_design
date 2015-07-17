@@ -1,11 +1,12 @@
 # ionic_material_design
 Basic login page using Ionic and Angular Material (ngMaterial)
 
-# target
+# Target
  - Show how to create a login page
  - Show how to build and Ionic application ready to production using gulp and hooks tasks
  - Show how to manipulate maps with Ionic
  - show how to open external apps from Ionic
+ - show how to use the device camera
 
 # Documentations
  - Ionic http://ionicframework.com/docs/
@@ -18,6 +19,7 @@ Basic login page using Ionic and Angular Material (ngMaterial)
 # Cordova Plugins
   - cordova-plugin-geolocation
   - cordova-plugin-inappbrowser
+  - org.apache.cordova.camera
 
 # Before run
  $ npm install<br>
