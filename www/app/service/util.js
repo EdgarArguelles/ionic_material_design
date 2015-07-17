@@ -10,6 +10,9 @@
 
     Util.prototype = {
         open: function (url, target, ops) {
+            if (!target) {
+                target = '_system';
+            }
             this._$window.open(url, target, ops)
         }
     };

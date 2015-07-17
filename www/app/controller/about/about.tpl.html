@@ -26,12 +26,28 @@
                         <md-icon>place</md-icon>
                         Visit
                     </md-button>
-                    <md-button style="width: 30%;">
-                        <md-icon>call</md-icon>
-                        Call
-                    </md-button>
+                    <md-menu style="width: 30%; padding: 0px;" md-offset="50 -100">
+                        <md-button style="width: 100%;" ng-click="$mdOpenMenu()">
+                            <md-icon>call</md-icon>
+                            Call
+                        </md-button>
+                        <md-menu-content width="2">
+                            <md-menu-item>
+                                <md-button ng-click="ctrl._util.open('tel:123456789')">
+                                    <md-icon>home</md-icon>
+                                    Home
+                                </md-button>
+                            </md-menu-item>
+                            <md-menu-item>
+                                <md-button ng-click="ctrl._util.open('tel:987654321')">
+                                    <md-icon>work</md-icon>
+                                    Office
+                                </md-button>
+                            </md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
                     <md-button style="width: 30%;"
-                               ng-click="ctrl._util.open('https://twitter.com/edgar_bonifacio','_system')">
+                               ng-click="ctrl._util.open('https://twitter.com/edgar_bonifacio')">
                         <md-icon class="ion-social-twitter"></md-icon>
                         Twitter
                     </md-button>
